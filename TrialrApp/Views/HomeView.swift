@@ -7,6 +7,10 @@
 
 import SwiftUI
 
+enum AppState {
+    case saved, settings, search, results
+}
+
 struct HomeView: View {
     
     @State var state: AppState = .saved
@@ -17,7 +21,7 @@ struct HomeView: View {
         case .search:
             SearchView()
         case .results:
-                SearchResultsView()
+            SearchResultsView()
         case .settings:
             SettingsView()
         }
@@ -31,6 +35,4 @@ struct HomeView_Previews: PreviewProvider {
 }
 
 
-enum AppState {
-    case saved, settings, search, results
-}
+
