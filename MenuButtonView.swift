@@ -17,14 +17,21 @@ struct MenuButtonView: View {
     @State var menuState: MenuState
     
     var body: some View {
-        switch menuState {
-        case .button:
-            FloatingButtonView()
-        case .menu:
-            FloatingMenuView(menuState: $menuState, appState: $appState)
-        case .surprise:
-            Text("Surprise!")
+        VStack {
+            Spacer()
+            HStack {
+                Spacer()
+                switch menuState {
+                case .button:
+                    FloatingButtonView(menuState: $menuState)
+                case .menu:
+                    FloatingMenuView(menuState: $menuState, appState: $appState)
+                case .surprise:
+                    Text("Surprise!")
+                }
+            }.padding(.trailing)
         }
+        
     }
 }
 
@@ -36,9 +43,16 @@ struct MenuButtonView_Previews: PreviewProvider {
 
 //MARK: Floating Button
 struct FloatingButtonView: View {
+    @Binding var menuState: MenuState
     
     var body: some View {
         Circle().frame(width: 50, height: 50)
+            .modifier(
+                TapAndLongPressModifier(
+                    tapAction: { withAnimation{menuState = .menu }},
+                                              
+                    longPressAction: {withAnimation{ menuState = .surprise }})
+            )
     }
 }
 
@@ -63,14 +77,22 @@ struct FloatingMenuView: View {
                             appState = .search
                         }
                     } label: {
-                        Image(systemName: "magnifying.glass")
+                        Image(systemName: "aqi.medium")
                             .resizable()
                             .frame(maxWidth: 30, maxHeight: 30)
-                            .foregroundColor(appState == .search ? .primary : .secondary)
+                            .foregroundColor(appState == .search ? .primary : .black)
                     }
+                    .padding(.leading, 50)
+                    Spacer()
                 }
             }
         }
+        .modifier(
+            TapAndLongPressModifier(
+                tapAction: { withAnimation{menuState = .button }},
+                                          
+                longPressAction: {withAnimation{ menuState = .surprise }})
+        )
     }
 }
 
