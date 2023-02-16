@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct SearchView: View {
-    
+    //MARK: Properties
     @State private var isShowingURL: Bool = false
     enum Sex: String, Identifiable, CaseIterable{
         case male, female, other
@@ -137,13 +137,91 @@ struct SearchView: View {
                         )
                     }
                 }
+                Button {
+                    print(self.theURL)
+                } label: {
+                    Text("Submit")
+                }
             }
         }
     }
+    
+    //MARK: Methods
+    func query() -> String {
+        let queryAge = "(AREA[MinimumAge]RANGE[MIN,\(age) years]) AND (AREA[MaximumAge]RANGE[\(age) years,MAX])"
+        var queryGender = ""
+        if sex == gender {
+            queryGender = "AREA[Gender]\(sex)"
+        } else {
+            if okayWithMistmatch {
+                queryGender = "(AREA[GenderBased]true AND AREA[Gender]\(gender)) OR AREA[Gender]\(sex)"
+            } else {
+                queryGender = "(AREA[GenderBased]true AND AREA[Gender]\(gender))"
+            }
+        }
+        let queryStatus = "(AREA[OverallStatus]\(studyStatus.rawValue.capitalized))" //if user wants to search for multi status, need to make a fix
+        var queryLocation = ""
+        if searchByStudyLocation {
+            //could also make each on its own variable, and then concatenate by joining with " AND "
+            queryLocation = " AND "
+            if !studyZip.isEmpty {
+                queryLocation.append("(AREA[LocationZip]\(studyZip))")
+                if !studyCity.isEmpty || !studyState.isEmpty || !studyInstitution.isEmpty {
+                    queryLocation.append(" AND ")
+                }
+            }
+            if !studyCity.isEmpty && !studyState.isEmpty {
+                queryLocation.append("(SEARCH[Location](AREA[LocationCity]\(studyCity) AND AREA[LocationState]\(studyState)))")
+                if !studyInstitution.isEmpty {
+                    queryLocation.append(" AND ")
+                }
+            } else if !studyCity.isEmpty && studyState.isEmpty {
+                queryLocation.append("SEARCH[Location](AREA[LocationCity]\(studyCity)))")
+                if !studyInstitution.isEmpty {
+                    queryLocation.append(" AND ")
+                }
+            } else if studyCity.isEmpty && !studyState.isEmpty {
+                queryLocation.append("(SEARCH[Location](AREA[LocationState]\(studyState)))")
+                if !studyInstitution.isEmpty {
+                    queryLocation.append(" AND ")
+                }
+            }
+            if !studyInstitution.isEmpty {
+                queryLocation.append("(AREA[Facility]\(studyInstitution))")
+            }
+        }
+        
+        var queryDetails = " AND ((AREA[StartDate]RANGE[MIN,\(date.formattedDate())])"
+        if searchByStudyDetails {
+            if healthyVolunteers {
+                queryDetails.append(" AND (AREA[HealthyVolunteers]\(healthyVolunteers))")
+            }
+            queryDetails.append(" AND (AREA[InterventionType]\(intervention.rawValue.capitalized))")
+        }
+        
+        var url = "https://clinicaltrials.gov/api/query/study_fields?expr=\(queryAge) AND \(queryStatus) AND \(queryGender)"
+        url.append(queryLocation)
+        url.append(queryDetails)
+        var formattedURL = url.replacingOccurrences(of: " ", with: "+")
+        formattedURL.append(")&fields=OrgStudyId,BriefTitle,Condition,TargetDuration,CentralContactName,CentralContactPhone,CentralContactEmail,LocationFacility&fmt=JSON")
+        print(formattedURL)
+        return formattedURL
+    }
+    
 }
 
 struct SearchView_Previews: PreviewProvider {
     static var previews: some View {
         SearchView()
+    }
+}
+
+
+
+extension Date {
+    func formattedDate() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MM/dd/YYYY"
+        return dateFormatter.string(from: self)
     }
 }
