@@ -13,7 +13,13 @@ struct HomeView: View {
     var body: some View {
         switch state {
         case .saved:
-            
+            SavedStudiesView()
+        case .search:
+            SearchView()
+        case .results:
+                SearchResultsView()
+        case .settings:
+            SettingsView()
         }
     }
 }
