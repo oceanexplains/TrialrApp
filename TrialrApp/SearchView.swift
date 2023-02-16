@@ -42,10 +42,12 @@ struct SearchView: View {
     
     @State private var theURL: String = ""
     
+    //MARK: Body
     var body: some View {
         VStack {
             Text("FIND A STUDY").font(.system(size: 20))
             Form {
+                //MARK: Demographics
                 Section("Demographics"){
                     HStack {
                         Text("Age: ")
@@ -75,6 +77,8 @@ struct SearchView: View {
                         Toggle("Do you want to see studies which match your sex but not gender?", isOn: $okayWithMistmatch)
                     }
                 }
+                
+                //MARK: Study Location
                 Section("Study Location"){
                     Toggle("Do you want to search by location?", isOn: $searchByStudyLocation)
                     if searchByStudyLocation{
@@ -110,6 +114,8 @@ struct SearchView: View {
                         }
                     }
                 }
+                
+                //MARK: Study Details
                 Section("Study Details"){
                     Toggle("Do you want to search by study details?", isOn: $searchByStudyDetails)
                     if searchByStudyDetails{
@@ -137,6 +143,8 @@ struct SearchView: View {
                         )
                     }
                 }
+                
+                //MARK: Submit
                 Button {
                     print(self.theURL)
                 } label: {
