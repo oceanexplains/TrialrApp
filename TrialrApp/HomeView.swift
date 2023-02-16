@@ -9,9 +9,12 @@ import SwiftUI
 
 struct HomeView: View {
     
-    @State var search: AppState = .saved
+    @State var state: AppState = .saved
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        switch state {
+        case .saved:
+            
+        }
     }
 }
 
