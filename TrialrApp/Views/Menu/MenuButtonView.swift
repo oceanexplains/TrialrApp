@@ -77,13 +77,35 @@ struct FloatingMenuView: View {
                             appState = .search
                         }
                     } label: {
-                        Image(systemName: "aqi.medium")
+                        Image(systemName: "magnifyingglass.circle.fill")
                             .resizable()
-                            .frame(maxWidth: 30, maxHeight: 30)
+                            .frame(maxWidth: 40, maxHeight: 40)
                             .foregroundColor(appState == .search ? .primary : .black)
                     }
                     .padding(.leading, 50)
                     Spacer()
+                    Button {
+                        withAnimation {
+                            appState = .saved
+                        }
+                    } label: {
+                        Image(systemName: "heart.circle.fill")
+                            .resizable()
+                            .frame(maxWidth: 40, maxHeight: 40)
+                            .foregroundColor(appState == .search ? .primary : .black)
+                    }
+                    Spacer()
+                    Button {
+                        withAnimation {
+                            appState = .settings
+                        }
+                    } label: {
+                        Image(systemName: "gear.circle.fill")
+                            .resizable()
+                            .frame(maxWidth: 40, maxHeight: 40)
+                            .foregroundColor(appState == .search ? .primary : .black)
+                    }
+                    .padding(.trailing, 50)
                 }
             }
         }

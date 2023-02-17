@@ -2,7 +2,7 @@
 //  SearchView.swift
 //  TrialrApp
 //
-//  Created by Tomer Zilbershtein on 2/16/23.
+//  Created by Ocean on 2/16/23.
 //
 
 import SwiftUI
@@ -146,7 +146,7 @@ struct SearchView: View {
                 
                 //MARK: Submit
                 Button {
-                    print(self.theURL)
+                    
                 } label: {
                     Text("Submit")
                 }
