@@ -7,6 +7,8 @@ The Trialr App is a simple iOS application that allows users to search for relev
 
 The app is built entirely using SwiftUI, and uses the Codable protocol to parse the JSON response from the ClinicalTrials.gov API. The app allows users to search for clinical trials by specifying various criteria, including condition, location, and study type.
 
+This project aims to make lifechanging health interventions more accessible by introducing people to opportunities that they might otherwise never hear of.
+
 Getting Started
 
 To use the Trialr App, you will need an iOS device running iOS 14 or later, or an iOS simulator running in Xcode 12 or later. You will also need an internet connection to search for clinical trials.
@@ -23,7 +25,7 @@ The results screen displays a list of studies that match your search criteria. C
 
 Contributing
 
-We welcome contributions to the Trialr App! If you would like to contribute, please open a pull request with your changes. Before contributing, please read our Contributing Guidelines.
+We welcome contributions to the Trialr App! If you would like to contribute, please open a pull request with your changes.
 
 License
 
