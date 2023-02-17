@@ -21,6 +21,7 @@ When you first launch the app, you will be presented with the main screen, which
 
 To search for clinical trials, click on the "Search" button in the navigation bar to go to the search screen. Here, you can specify various search criteria, including condition, location, and study type. Once you have specified your search criteria, click on the "Search" button to see a list of studies that match your criteria.
 
+
 The results screen displays a list of studies that match your search criteria. Clicking on a study in the list will take you to the study detail screen, where you can view more information about the study.
 
 Contributing
