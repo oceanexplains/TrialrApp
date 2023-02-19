@@ -9,7 +9,6 @@ import SwiftUI
 
 struct StudyRowItemView: View {
     let study: StudyField
-    
     var body: some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(study.briefTitle.first ?? "")
@@ -23,7 +22,13 @@ struct StudyRowItemView: View {
                 .font(.subheadline)
                 .foregroundColor(.secondary)
                 .lineLimit(1)
+            HStack {
+                Image(systemName: "heart")
+                    .foregroundColor(.red)
+                    .imageScale(.large)
+            }
         }
+        
     }
 }
 

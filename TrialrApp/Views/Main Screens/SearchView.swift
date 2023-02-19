@@ -9,6 +9,11 @@ import SwiftUI
 
 struct SearchView: View {
     //MARK: Properties
+    
+    @AppStorage("URL") var URL: String = ""
+    
+    @Binding var appState: AppState
+    
     @State private var isShowingURL: Bool = false
     enum Sex: String, Identifiable, CaseIterable{
         case male, female, other
@@ -39,8 +44,6 @@ struct SearchView: View {
     @State private var healthyVolunteers: Bool = true
     @State private var studyStatus: StudyStatus = .active
     @State private var date = Date.now
-    
-    @State private var theURL: String = ""
     
     //MARK: Body
     var body: some View {
@@ -146,7 +149,8 @@ struct SearchView: View {
                 
                 //MARK: Submit
                 Button {
-                    
+                    URL = query()
+                    appState = .results
                 } label: {
                     Text("Submit")
                 }
@@ -218,11 +222,6 @@ struct SearchView: View {
     
 }
 
-struct SearchView_Previews: PreviewProvider {
-    static var previews: some View {
-        SearchView()
-    }
-}
 
 
 

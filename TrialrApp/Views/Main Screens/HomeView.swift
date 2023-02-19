@@ -13,14 +13,14 @@ enum AppState {
 
 struct HomeView: View {
     
-    @State var appState: AppState = .saved
+    @State var appState: AppState = .results
     var body: some View {
         ZStack {
             switch appState {
             case .saved:
-                SavedStudiesView()
+                SavedStudiesView(appState: $appState)
             case .search:
-                SearchView()
+                SearchView(appState: $appState)
             case .results:
                 SearchResultsView()
             case .settings:
