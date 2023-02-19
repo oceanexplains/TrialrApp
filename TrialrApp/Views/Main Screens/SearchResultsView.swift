@@ -8,13 +8,16 @@
 import SwiftUI
 
 struct SearchResultsView: View {
-//    @AppStorage("sampleURL") var URLQuery: String = ""
+    @AppStorage("URL") var URLQuery: String = ""
     
     
-    let URLQuery: String = "https://clinicaltrials.gov/api/query/study_fields?expr=(AREA%5BMinimumAge%5DRANGE%5BMIN,23+years%5D)+AND+(AREA%5BMaximumAge%5DRANGE%5B23+years,MAX%5D)+AND+(AREA%5BOverallStatus%5DActive)+AND+(AREA%5BGenderBased%5Dtrue+AND+AREA%5BGender%5Dfemale)+OR+AREA%5BGender%5Dmale+AND+((AREA%5BStartDate%5DRANGE%5BMIN,12/14/2022%5D))&fields=OrgStudyId,NCTId,BriefTitle,Condition,TargetDuration,CentralContactName,CentralContactPhone,CentralContactEmail,LocationFacility&fmt=JSON"
+    //let URLQuery: String = "https://clinicaltrials.gov/api/query/study_fields?expr=(AREA%5BMinimumAge%5DRANGE%5BMIN,23+years%5D)+AND+(AREA%5BMaximumAge%5DRANGE%5B23+years,MAX%5D)+AND+(AREA%5BOverallStatus%5DActive)+AND+(AREA%5BGenderBased%5Dtrue+AND+AREA%5BGender%5Dfemale)+OR+AREA%5BGender%5Dmale+AND+((AREA%5BStartDate%5DRANGE%5BMIN,12/14/2022%5D))&fields=OrgStudyId,NCTId,BriefTitle,Condition,TargetDuration,CentralContactName,CentralContactPhone,CentralContactEmail,LocationFacility&fmt=JSON"
     
     @State var results: [StudyField] = []
     @State var saved: [String] = []
+    
+    @State var isSharing: Bool = false
+    @State var shareText: String = "Bananas"
     
     var body: some View {
 
@@ -38,6 +41,15 @@ struct SearchResultsView: View {
                                 Text("Save Study")
                                 Image(systemName: "heart.circle.fill")
                             }
+                            
+                            Button(action: {
+                                
+                                shareText = "Check out this study:"// \(study.briefTitle.first ?? "")"
+                                isSharing = true
+                            }) {
+                                Text("Share with friends!")
+                                Image(systemName: "square.and.arrow.up")
+                            }
                         }
                         
                     }
@@ -47,6 +59,9 @@ struct SearchResultsView: View {
                 await loadData()
             }
             .navigationTitle("Search Results")
+            .sheet(isPresented: $isSharing) {
+                ShareView(activityItems: [shareText])
+            }
         }
         
     }

@@ -13,7 +13,7 @@ enum AppState {
 
 struct HomeView: View {
     
-    @State var appState: AppState = .results
+    @State var appState: AppState = .search
     var body: some View {
         ZStack {
             switch appState {

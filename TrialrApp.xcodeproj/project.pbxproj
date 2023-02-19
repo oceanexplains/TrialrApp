@@ -22,6 +22,7 @@
 		548EE14A299F0D3F0029A3EB /* AnimatedGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EE149299F0D3F0029A3EB /* AnimatedGradients.swift */; };
 		548EE14C299F0D4C0029A3EB /* AuroraBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EE14B299F0D4C0029A3EB /* AuroraBackground.swift */; };
 		54FEFCAD29A20D130079E46E /* StudyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFCAC29A20D130079E46E /* StudyDetailsView.swift */; };
+		54FEFCAF29A213B60079E46E /* ShareView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFCAE29A213B60079E46E /* ShareView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +42,7 @@
 		548EE149299F0D3F0029A3EB /* AnimatedGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradients.swift; sourceTree = "<group>"; };
 		548EE14B299F0D4C0029A3EB /* AuroraBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraBackground.swift; sourceTree = "<group>"; };
 		54FEFCAC29A20D130079E46E /* StudyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDetailsView.swift; sourceTree = "<group>"; };
+		54FEFCAE29A213B60079E46E /* ShareView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShareView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -76,6 +78,7 @@
 		543A3C45299ECD22000CFAF6 = {
 			isa = PBXGroup;
 			children = (
+				54FEFCAE29A213B60079E46E /* ShareView.swift */,
 				543A3C50299ECD22000CFAF6 /* TrialrApp */,
 				543A3C4F299ECD22000CFAF6 /* Products */,
 			);
@@ -228,6 +231,7 @@
 				5405B859299EDBCB00B3A4F1 /* SearchView.swift in Sources */,
 				5405B857299ED8E500B3A4F1 /* StudyRowItemView.swift in Sources */,
 				5405B855299ED5A500B3A4F1 /* API Models.swift in Sources */,
+				54FEFCAF29A213B60079E46E /* ShareView.swift in Sources */,
 				5405B85D299EE52400B3A4F1 /* HomeView.swift in Sources */,
 				543A3C54299ECD22000CFAF6 /* ContentView.swift in Sources */,
 				543A3C52299ECD22000CFAF6 /* TrialrAppApp.swift in Sources */,
