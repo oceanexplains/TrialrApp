@@ -17,7 +17,7 @@ struct SearchResultsView: View {
     @State var saved: [String] = []
     
     @State var isSharing: Bool = false
-    @State var shareText: String = "Bananas"
+    @State var shareText: String = ""
     
     var body: some View {
 
@@ -44,7 +44,7 @@ struct SearchResultsView: View {
                             
                             Button(action: {
                                 
-                                shareText = "Check out this study:"// \(study.briefTitle.first ?? "")"
+                                shareText = "Check out this study: \(study.briefTitle.first ?? "")"
                                 isSharing = true
                             }) {
                                 Text("Share with friends!")
