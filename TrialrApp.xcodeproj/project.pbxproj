@@ -21,6 +21,7 @@
 		548EE148299EEFEE0029A3EB /* MenuButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EE147299EEFEE0029A3EB /* MenuButtonView.swift */; };
 		548EE14A299F0D3F0029A3EB /* AnimatedGradients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EE149299F0D3F0029A3EB /* AnimatedGradients.swift */; };
 		548EE14C299F0D4C0029A3EB /* AuroraBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = 548EE14B299F0D4C0029A3EB /* AuroraBackground.swift */; };
+		54FEFCAD29A20D130079E46E /* StudyDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 54FEFCAC29A20D130079E46E /* StudyDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		548EE147299EEFEE0029A3EB /* MenuButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuButtonView.swift; sourceTree = "<group>"; };
 		548EE149299F0D3F0029A3EB /* AnimatedGradients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatedGradients.swift; sourceTree = "<group>"; };
 		548EE14B299F0D4C0029A3EB /* AuroraBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuroraBackground.swift; sourceTree = "<group>"; };
+		54FEFCAC29A20D130079E46E /* StudyDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudyDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -127,9 +129,11 @@
 		548EE14F299F0DE00029A3EB /* Main Screens */ = {
 			isa = PBXGroup;
 			children = (
+				5405B856299ED8E500B3A4F1 /* StudyRowItemView.swift */,
 				5405B860299EE86E00B3A4F1 /* SavedStudiesView.swift */,
 				5405B862299EE8E300B3A4F1 /* SearchResultsView.swift */,
 				5405B858299EDBCB00B3A4F1 /* SearchView.swift */,
+				54FEFCAC29A20D130079E46E /* StudyDetailsView.swift */,
 				5405B85E299EE76D00B3A4F1 /* SettingsView.swift */,
 				5405B85C299EE52400B3A4F1 /* HomeView.swift */,
 			);
@@ -140,7 +144,6 @@
 			isa = PBXGroup;
 			children = (
 				543A3C53299ECD22000CFAF6 /* ContentView.swift */,
-				5405B856299ED8E500B3A4F1 /* StudyRowItemView.swift */,
 			);
 			path = Auxiliary;
 			sourceTree = "<group>";
@@ -220,6 +223,7 @@
 				548EE14A299F0D3F0029A3EB /* AnimatedGradients.swift in Sources */,
 				548EE14C299F0D4C0029A3EB /* AuroraBackground.swift in Sources */,
 				5405B85F299EE76D00B3A4F1 /* SettingsView.swift in Sources */,
+				54FEFCAD29A20D130079E46E /* StudyDetailsView.swift in Sources */,
 				548EE148299EEFEE0029A3EB /* MenuButtonView.swift in Sources */,
 				5405B859299EDBCB00B3A4F1 /* SearchView.swift in Sources */,
 				5405B857299ED8E500B3A4F1 /* StudyRowItemView.swift in Sources */,

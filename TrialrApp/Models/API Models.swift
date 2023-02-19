@@ -45,12 +45,13 @@ struct StudyFieldsResponse: Codable {
 // MARK: - StudyField
 struct StudyField: Codable {
     let rank: Int
-    let orgStudyID, briefTitle, condition, targetDuration: [String]
+    let orgStudyID, nctID, briefTitle, condition, targetDuration: [String]
     let centralContactName, centralContactPhone, centralContactEMail, locationFacility: [String]
 
     enum CodingKeys: String, CodingKey {
         case rank = "Rank"
         case orgStudyID = "OrgStudyId"
+        case nctID = "NCTId"
         case briefTitle = "BriefTitle"
         case condition = "Condition"
         case targetDuration = "TargetDuration"

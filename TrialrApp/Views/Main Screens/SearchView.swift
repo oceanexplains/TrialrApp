@@ -215,7 +215,7 @@ struct SearchView: View {
         url.append(queryLocation)
         url.append(queryDetails)
         var formattedURL = url.replacingOccurrences(of: " ", with: "+")
-        formattedURL.append(")&fields=OrgStudyId,BriefTitle,Condition,TargetDuration,CentralContactName,CentralContactPhone,CentralContactEmail,LocationFacility&fmt=JSON")
+        formattedURL.append(")&fields=OrgStudyId,NCTId,BriefTitle,Condition,TargetDuration,CentralContactName,CentralContactPhone,CentralContactEmail,LocationFacility&fmt=JSON")
         print(formattedURL)
         return formattedURL
     }
