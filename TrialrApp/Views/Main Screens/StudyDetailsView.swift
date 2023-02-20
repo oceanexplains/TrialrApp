@@ -11,6 +11,7 @@ import SwiftUI
 struct StudyDetailsView: View {
     
     @State var study: FullStudy
+//    @State var study: StudyField
     
     @State var showPrimaryContact: Bool = false
     @State var showIntervention: Bool = false
@@ -84,17 +85,11 @@ struct StudyDetailsView: View {
     }
 }
 
-struct StudyDetailsView_Previews: PreviewProvider {
-    static var previews: some View {
-        StudyDetailsView(study: StudyField(rank: 8, orgStudyID: ["Org Study Id"], nctID: ["NCTId"], briefTitle: ["Title"], condition: ["Condition"], targetDuration: ["Duration"], centralContactName: ["Contact Name"], centralContactPhone: ["Phone"], centralContactEMail: ["Email"], locationFacility: ["Facility"]))
-    }
-}
-
 
 
 struct DetailItemView: View {
     var title: String
-    var text: String
+    var text: String?
     
     var body: some View {
         HStack {
