@@ -48,8 +48,14 @@ struct SearchView: View {
     //MARK: Body
     var body: some View {
         VStack {
-            Text("FIND A STUDY").font(.system(size: 20))
+            HStack {
+                Spacer()
+                Text("FIND A STUDY").font(.system(size: 20))
+                    .padding(.top)
+                Spacer()
+            }
             Form {
+                
                 //MARK: Demographics
                 Section("Demographics"){
                     HStack {
@@ -155,7 +161,9 @@ struct SearchView: View {
                     Text("Submit")
                 }
             }
+            .clipShape(RoundedRectangle(cornerRadius: 20))
         }
+        
     }
     
     //MARK: Methods

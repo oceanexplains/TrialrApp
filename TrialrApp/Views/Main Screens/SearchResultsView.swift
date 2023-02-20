@@ -58,11 +58,14 @@ struct SearchResultsView: View {
                 print("task starts")
                 await loadData()
             }
+            
             .navigationTitle("Search Results")
+            .navigationBarTitleDisplayMode(.inline)
             .sheet(isPresented: $isSharing) {
                 ShareView(activityItems: [shareText])
             }
         }
+        .clipShape(RoundedRectangle(cornerRadius: 25))
         
     }
     

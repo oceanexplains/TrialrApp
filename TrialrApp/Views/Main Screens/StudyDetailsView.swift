@@ -4,18 +4,103 @@
 //
 //  Created by Tomer Zilbershtein on 2/19/23.
 //
+//https://clinicaltrials.gov/api/gui/ref/responses
 
 import SwiftUI
 
 struct StudyDetailsView: View {
-//    var study: StudyField
+    
+    @State var study: FullStudy
+    
+    @State var showPrimaryContact: Bool = false
+    @State var showIntervention: Bool = false
+    @State var showEligibility: Bool = false
+    @State var showDetailedDescription: Bool = false
+    @State var showSummary: Bool = false
+    @State var showConditionDetails: Bool = false
+    @State var showCentralContact: Bool = false
+//    @State var showEligibility: Bool = false
+//    @State var showEligibility: Bool = false
+//    @State var showEligibility: Bool = false
+//    @State var showEligibility: Bool = false
+//    @State var showEligibility: Bool = false
+//    @State var showEligibility: Bool = false
+
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        VStack {
+            List {
+//                Group {
+//                    Section("Contact Info") {
+//                        Toggle("Show Primary Contact Details", isOn: $showPrimaryContact)
+//                        if showPrimaryContact {
+//                            DetailItemView(title: "Title", text: <#T##String#>)
+//                            DetailItemView(title: "Phone", text: <#T##String#>)
+//                            DetailItemView(title: "Phone Extension", text: <#T##String#>)
+//                            DetailItemView(title: "eMail", text: <#T##String#>)
+//                            DetailItemView(title: "Primary Contact", text: <#T##String#>)
+//                        }
+//                        Toggle("Show Central Contact Details", isOn: $showCentralContact)
+//                        if showCentralContact {
+//                            DetailItemView(title: "Central Contact", text: <#T##String#>)
+//                            DetailItemView(title: "Central Contact", text: <#T##String#>)
+//                            DetailItemView(title: "Central Contact", text: <#T##String#>)
+//                            DetailItemView(title: "Central Contact", text: <#T##String#>)
+//                            DetailItemView(title: "Central Contact", text: <#T##String#>)
+//                        }
+//                    }
+//
+//                }
+                Group {
+                    Section("Study Details") {
+                        Toggle("Show Intervention Details", isOn: $showIntervention)
+                        if showIntervention {
+                            Text("")
+                        }
+                        Toggle("Show Condition Details", isOn: $showConditionDetails)
+                        if showConditionDetails {
+                            Text("")
+                        }
+                    }
+                    Section("Eligibility") {
+                        Toggle("Show Eligibility Details", isOn: $showEligibility)
+                        if showEligibility {
+                            Text("")
+                        }
+                    }
+                    Section("Study Details") {
+                        Toggle("Show Summary", isOn: $showSummary)
+                        if showDetailedDescription {
+                            Text("")
+                        }
+                        Toggle("Show Detailed Description", isOn: $showDetailedDescription)
+                        if showSummary {
+                            Text("")
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 
 struct StudyDetailsView_Previews: PreviewProvider {
     static var previews: some View {
-        StudyDetailsView()
+        StudyDetailsView(study: StudyField(rank: 8, orgStudyID: ["Org Study Id"], nctID: ["NCTId"], briefTitle: ["Title"], condition: ["Condition"], targetDuration: ["Duration"], centralContactName: ["Contact Name"], centralContactPhone: ["Phone"], centralContactEMail: ["Email"], locationFacility: ["Facility"]))
+    }
+}
+
+
+
+struct DetailItemView: View {
+    var title: String
+    var text: String
+    
+    var body: some View {
+        HStack {
+            Text(title)
+            Spacer()
+            Text(text ?? "NA")
+        }
     }
 }

@@ -13,7 +13,7 @@ struct StudyRowItemView: View {
 
     var body: some View {
         NavigationLink {
-            StudyDetailsView()
+            StudyDetailsView(study: study)
         } label: {
             VStack(alignment: .leading, spacing: 4) {
                 Text(study.briefTitle.first ?? "")
@@ -32,6 +32,7 @@ struct StudyRowItemView: View {
                         .foregroundColor(isSaved ? .red : .gray)
                         .imageScale(.large)
                 }
+                Text("NCTID: \(study.nctID[0])")
             }
         }
     }

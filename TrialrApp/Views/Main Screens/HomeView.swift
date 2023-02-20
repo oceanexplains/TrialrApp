@@ -23,6 +23,7 @@ struct HomeView: View {
                 SearchView(appState: $appState)
             case .results:
                 SearchResultsView()
+                
             case .settings:
                 SettingsView()
             }

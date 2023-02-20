@@ -15,8 +15,7 @@ struct TrialrAppApp: App {
     
     var body: some Scene {
         WindowGroup {
-//            ContentView()
-            HomeView()
+            ContentView()
         }
     }
 }
