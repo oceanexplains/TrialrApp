@@ -10,8 +10,8 @@ import SwiftUI
 
 struct StudyDetailsView: View {
     
-    @State var study: FullStudy
-//    @State var study: StudyField
+//    @State var study: FullStudy
+    @State var study: StudyField
     
     @State var showPrimaryContact: Bool = false
     @State var showIntervention: Bool = false
@@ -83,6 +83,23 @@ struct StudyDetailsView: View {
             }
         }
     }
+//    func loadStudy(id: String) async {
+//        let queryURL = "https://classic.clinicaltrials.gov/api/query/full_studies?expr=AREA%5BNCTId%\(id)&min_rnk=1&max_rnk=&fmt=json"
+//        
+//        guard let url = URL(string: queryURL) else {
+//            print("invalid study url")
+//            return
+//        }
+//        
+//        do {
+//            let (data,_) = try await URLSession.shared.data(from: url)
+//            if let decodedResponse = try? JSONDecoder().decode(FullStudiesResponse.self, from: data) {
+//                study = decodedResponse.fullStudies.first
+//            }
+//        } catch {
+//            print("Invalid Study Data")
+//        }
+//    }
 }
 
 
